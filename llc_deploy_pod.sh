@@ -156,7 +156,7 @@ cat <<EOT> /home/ubuntu/net-default.xml
 </network>
 EOT
 
-virsh net-define net-default.xml
+virsh net-define /home/ubuntu/net-default.xml
 virsh net-autostart default
 virsh net-start default
 
@@ -169,7 +169,7 @@ echo "Virsh address: qemu+ssh://ubuntu@$IP/system"
 exit 0
 EOTW
 
-sudo chmod +x llc_net_define1.sh
+sudo chmod +x /home/ubuntu/llc_net_define1.sh
 echo ""
 echo ""
 echo "reboot to complete changes"
