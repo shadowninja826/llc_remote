@@ -171,7 +171,7 @@ echo "Virsh address: qemu+ssh://ubuntu@$IP/system"
 exit 0
 EOTW
 
-sudo chmod +x /home/ubuntu/llc_net_define1.sh
+sudo chmod +x /home/ubuntu/llc_remote/llc_net_define1.sh
 echo ""
 echo ""
 echo "reboot to complete changes"
