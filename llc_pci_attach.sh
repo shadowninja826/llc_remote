@@ -18,4 +18,9 @@ cat <<EOT >> ~/gpu-pci.xml
 </hostdev>
 EOT
 
+echo "run the following to attach the GPU" 
+echo "***"
+echo "virsh attach-device (VM Name) --file ~/gpu-pci.xml --config"
+echo "***"
+echo "shutdown and restart the VM - not reboot"
 exit 0
