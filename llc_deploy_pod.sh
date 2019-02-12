@@ -144,11 +144,11 @@ echo "run llc_net_define1.sh after node comes back online"
 cat <<EOTW > llc_net_define1.sh
 #!/bin/bash
 sudo virsh net-list
-wait 3
+sleep 2
 sudo virsh net-destroy default
-wait 3
+sleep 2
 sudo virsh net-undefine default
-wait 3
+sleep 2
 
 cat <<EOT > /home/ubuntu/net-default.xml
 <network>
@@ -161,7 +161,7 @@ EOT
 virsh net-define /home/ubuntu/net-default.xml
 virsh net-autostart default
 virsh net-start default
-wait 3
+sleep 2
 virsh pool-define-as default dir - - - - "/var/lib/libvirt/images"
 virsh pool-autostart default
 virsh pool-start default
