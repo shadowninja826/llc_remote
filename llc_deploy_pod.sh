@@ -141,7 +141,7 @@ sudo update-initramfs -u
 echo "reboot to complete changes"
 echo "run llc_net_define1.sh after node comes back online"
 # creating the next script to run
-cat <<EOTW > llc_net_define1.sh
+cat <<EOTW > ~/llc_net_define1.sh
 #!/bin/bash
 sudo virsh net-list
 sleep 2
@@ -150,7 +150,7 @@ sleep 2
 sudo virsh net-undefine default
 sleep 2
 
-cat <<EOT > /home/ubuntu/net-default.xml
+cat <<EOT > ~/net-default.xml
 <network>
 		<name>default</name>
 		<forward mode="bridge" />
@@ -158,7 +158,7 @@ cat <<EOT > /home/ubuntu/net-default.xml
 </network>
 EOT
 
-virsh net-define /home/ubuntu/net-default.xml
+virsh net-define ~/net-default.xml
 virsh net-autostart default
 virsh net-start default
 sleep 2
@@ -171,7 +171,7 @@ echo "Virsh address: qemu+ssh://ubuntu@$IP/system"
 exit 0
 EOTW
 
-sudo chmod +x /home/ubuntu/llc_remote/llc_net_define1.sh
+sudo chmod +x ~/llc_net_define1.sh
 echo ""
 echo ""
 echo "reboot to complete changes"
