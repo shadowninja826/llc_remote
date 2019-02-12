@@ -1,5 +1,6 @@
 #!/bin/bash
 # check if everything is setup properly
+#
 IP_ADDR=`hostname -I`
 INTERF=`ip a | grep -B 2 $IP_ADDR | awk 'NR==1{print $2}'`
 PCI_SLOT=`lspci -nn | grep -i nvidia | awk '{print $1}'`
