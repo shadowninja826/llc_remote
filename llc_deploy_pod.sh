@@ -34,7 +34,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmJ9VGFBx+FE2hiq3Izi2k1juczwhP5WOHK7
 # Next, edit cloud-init network interfaces file 50-cloud-init.cfg to setup virsh bridge.
 # Depending on whether eth0 or eth1 is connected to management network, you may need to replace eth1 and br1 in remaining instructions.  Dell and Kontron servers are attached on eth1 while V4N servers are on eth0.
 
-cp /etc/network/interfaces.d/50-cloud-init.cfg ~/50-cloud-init.cfg.bak
+sudo cp /etc/network/interfaces.d/50-cloud-init.cfg ~/50-cloud-init.cfg.bak
 
 
 sudo cat<<EOT > /etc/network/interfaces.d/50-cloud-init.cfg
@@ -91,8 +91,8 @@ echo ""
 #
 
 
-mv /etc/modules "~/etc_modules.$(date +%F-%H-%M).bak"
-cat <<EOT >> /etc/modules
+sudo mv /etc/modules "~/etc_modules.$(date +%F-%H-%M).bak"
+sudo cat <<EOT >> /etc/modules
 # /etc/modules: kernel modules to load at boot time.
 #
 # This file contains the names of kernel modules that should be loaded
@@ -105,7 +105,7 @@ EOT
 
 
 mv /etc/initramfs-tools/modules "~/etc_init_modules.$(date +%F-%H-%M).bak"
-cat <<EOT >> /etc/initramfs-tools/modules
+sudo cat <<EOT >> /etc/initramfs-tools/modules
 # List of modules that you want to include in your initramfs.
 # They will be loaded at boot time in the order below.
 #
@@ -150,7 +150,7 @@ sleep 2
 sudo virsh net-undefine default
 sleep 2
 
-cat <<EOT > ~/net-default.xml
+sudo cat <<EOT > ~/net-default.xml
 <network>
 		<name>default</name>
 		<forward mode="bridge" />
