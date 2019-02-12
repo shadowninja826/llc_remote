@@ -91,7 +91,7 @@ echo ""
 #
 
 
-mv /etc/modules "/etc/modules.$(date +%F_%R).bak"
+mv /etc/modules "~/etc_modules.$(date +%F-%H-%M).bak"
 cat <<EOT >> /etc/modules
 # /etc/modules: kernel modules to load at boot time.
 #
@@ -104,7 +104,7 @@ vhost-net
 EOT
 
 
-mv /etc/initramfs-tools/modules "/etc/initramfs-tools/modules.$(date +%F_%R).bak"
+mv /etc/initramfs-tools/modules "~/etc_init_modules.$(date +%F-%H-%M).bak"
 cat <<EOT >> /etc/initramfs-tools/modules
 # List of modules that you want to include in your initramfs.
 # They will be loaded at boot time in the order below.
@@ -121,7 +121,6 @@ vfio
 vfio_iommu_type1
 vfio_pci ids=$PCI_ADD
 vhost-net
-pci-stub
 EOT
 
 echo "content of /etc/modules"
