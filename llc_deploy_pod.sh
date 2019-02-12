@@ -172,6 +172,7 @@ exit 0
 EOTW
 
 sudo chmod +x ~/llc_net_define1.sh
+sudo chmod +x ~/llc_remote/llc_check_pod.sh
 echo ""
 echo ""
 echo "reboot to complete changes"
