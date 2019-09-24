@@ -11,7 +11,7 @@
 IP=`ip a | grep 172.27 | awk '{print $2}' | rev | cut -c 4- | rev`
 
 # PCI Address of GPU
-PCI_ADD=`lspci -nn | grep -i nvidia | awk '{print $8}' | cut -c -10 | rev | cut -c -9 | rev`
+PCI_ADD=`lspci -nn | grep -i nvidia | awk '{print $10}' | cut -c -10 | rev | cut -c -9 | rev`
 
 ETH=`ip a | grep -B 2 172.27 | awk 'NR==1{print $2}' | rev | cut -c 2- | rev`
 ADAPTER_NUM=`ip a | grep -B 2 172.27 | awk 'NR==1{print $2}' | cut -c 4`
