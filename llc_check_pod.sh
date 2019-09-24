@@ -20,7 +20,7 @@ echo ""
 echo "confirm the GPU and the modules are addressed correctly"
 echo ""
 echo "it should be ***"
-lspci -nn | grep $PCI_SLOT | awk '{print $8}'
+lspci -nn | grep $PCI_SLOT | awk '{print $10}'
 echo "***"
 echo ""
 sleep 1
