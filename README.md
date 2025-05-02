@@ -1,5 +1,5 @@
 # llc_remote
-create pods and passthrough gpu - Kontron nodes
+create pods and passthrough GPU - Kontron nodes
 
 --
 llc_deploy_pod.sh will install virt tools and prepare the physical node to be managed by MaaS and create a bridged adapter
